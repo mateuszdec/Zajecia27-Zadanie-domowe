@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmy</title>
+</head>
+<body>
+
+    <a href="/">Powrót do listy filmów</a>
+    <form method="get" action="/" th:object="${filters}">
+        <select name="category" th:field="*{Category}">
+            <option value="">Wszystkie</option>
+            <option th:each="o: ${T(org.javastart.zadaniedomowe.movies.Category).values()}"></option>
+            <input type="submit" value="Filtruj" />
+        </select>
+    </form>
+
+</body>
+</html>
