@@ -9,7 +9,7 @@
     <a href="/add">Dodaj film</a>
 
     <form method="get" action="/" th:object="${filters}">
-        <select name="targetAudience" th:field="*{category}">
+        <select name="category" th:field="*{category}">
             <option value="">Wszystkie</option>
             <option value="HORROR">HORROR</option>
             <option value="WOJENNY">WOJENNY</option>

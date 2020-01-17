@@ -22,7 +22,6 @@ public class Movie {
     @Enumerated(EnumType.STRING)
     private Category category;
 
-
     public Long getId() {
         return id;
     }

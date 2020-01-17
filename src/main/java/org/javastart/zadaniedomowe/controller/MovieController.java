@@ -6,9 +6,11 @@ import org.javastart.zadaniedomowe.repository.MovieRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MovieController {
@@ -31,20 +33,8 @@ public class MovieController {
         model.addAttribute("movies", movies);
         model.addAttribute("filters", movieFilters);
 
-        return "movies"; // ->> resources/templates/movies.html
+        return "movies";
     }
-
-//    @GetMapping("/film")
-//    public String movieDetails(@PathVariable Long id, Model model) {
-//        Optional<Movie> optional = movieRepository.findById(id);
-//        if (optional.isPresent()) {
-//            Movie movie = optional.get();
-//            model.addAttribute("movie", movie);
-//            return "movie"; // ->> resources/templates/movie.html
-//        } else {
-//            return "redirect:/";
-//        }
-//    }
 
     @GetMapping("/add")
     public String addMovieForm(Model model) {
@@ -56,6 +46,6 @@ public class MovieController {
     @PostMapping("/add")
     public String addMovie(Movie movie) {
         movieRepository.save(movie);
-        return "redirect:/film/";
+        return "redirect:/";
     }
 }
