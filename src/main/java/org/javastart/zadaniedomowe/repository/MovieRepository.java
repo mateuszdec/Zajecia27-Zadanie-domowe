@@ -10,18 +10,7 @@ import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-
-//    @Query("SELECT m FROM Movie m " +
-//            " WHERE 1=1 " +
-//            " AND (:title IS NULL OR m.title LIKE CONCAT('%', :title, '%'))" +
-//            " AND (:category IS NULL OR m.category = :category)"
-//    )
-
-        @Query("SELECT m FROM Movie m " +
-            " WHERE (:category IS NULL OR m.category = :category)"
-    )
-
-    List<Movie> findUsingFilters(
-                @Param("category") Category category);
+        @Query("SELECT m FROM Movie m WHERE (:category IS NULL OR m.category = :category)")
+    List<Movie> findUsingFilters(@Param("category") Category category);
 
 }
