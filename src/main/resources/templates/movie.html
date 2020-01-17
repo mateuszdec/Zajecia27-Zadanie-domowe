@@ -6,14 +6,43 @@
 </head>
 <body>
 
-    <a href="/">Powrót do listy filmów</a>
-    <form method="get" action="/" th:object="${filters}">
-        <select name="category" th:field="*{Category}">
-            <option value="">Wszystkie</option>
-            <option th:each="o: ${T(org.javastart.zadaniedomowe.movies.Category).values()}"></option>
-            <input type="submit" value="Filtruj" />
-        </select>
-    </form>
+<a href="/addmovie">Dodaj film</a>
+
+<!--<form method="get" action="/" >-->
+<!--    <select name="category" th:field="*{category}">-->
+<!--        <option value="">Wszystkie</option>-->
+<!--        <option th:each="o: ${T(org.javastart.movie.Category).values()}"-->
+<!--                th:value="${o.name()}"-->
+<!--                th:text="${o.name()}"></option>-->
+<!--    </select>-->
+<!--    <input type="text" th:field="*{title}" placeholder="Tytuł"/>-->
+<!--    <input type="submit" value="Filtruj" />-->
+<!--</form>-->
+
+
+
+
+<form method="get" action="/" >
+    <select name="category">
+        <option value="">Wszystkie</option>
+        <option th:each="o: ${T(org.javastart.movie.Category)}"></option>
+<!--                th:value="${o.name()}"-->
+<!--                th:text="${o.name()}"></option>-->
+    </select>
+    <input type="text" placeholder="Tytuł"/>
+    <input type="submit" value="Filtruj" />
+</form>
+
+
+<!--<ul>-->
+<!--    <li th:each="movie: ${movies}">-->
+<!--        <a th:href="'/film/' + ${movie.id}" th:text="${movie.title}"></a>-->
+<!--        &nbsp;-->
+<!--        <a th:href="'/film/edytuj/' + ${movie.id}">(Edytuj)</a>-->
+<!--        &nbsp;-->
+<!--        <a th:href="'/usun/' + ${movie.id}">(Usuń)</a>-->
+<!--    </li>-->
+<!--</ul>-->
 
 </body>
 </html>

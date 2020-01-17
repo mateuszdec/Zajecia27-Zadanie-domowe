@@ -1,27 +1,27 @@
-package org.javastart.zadaniedomowe.movies;
+package org.javastart.zadaniedomowe.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class Movies {
+public class Movie {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate premiereDate;
-    private String description;
 
-    @Enumerated
+    private long description;
+
+    @Enumerated(EnumType.STRING)
     private Category category;
+
 
     public Long getId() {
         return id;
@@ -47,11 +47,11 @@ public class Movies {
         this.premiereDate = premiereDate;
     }
 
-    public String getDescription() {
+    public long getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(long description) {
         this.description = description;
     }
 

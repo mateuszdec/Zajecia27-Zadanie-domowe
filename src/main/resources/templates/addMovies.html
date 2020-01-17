@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmy</title>
+
+</head>
+<body>
+    <h2>Dodaj nowy film</h2>
+    <form method="post" action="/add" object="movie">
+        <input type="text" name="title" placeholder="Tytuł"><br>
+        <input type="text" name="describe" placeholder="Opis"><br>
+        <input type="date" name="premiereDate" placeholder="Data_premiery"><br>
+        <select>
+            <option value="Wybierz">Wybierz Kategorię</option>
+            <option value="HORROR">HORROR</option>
+            <option value="WOJENNY">WOJENNY</option>
+            <option value="KRYMINAŁ">KRYMINAŁ</option>
+            <option value="KOMEDIA">KOMEDIA</option>
+        </select><br>
+        <button type="submit" class="btn btn-primary">Dodaj</button>
+    </form>
+
+</body>
+</html>

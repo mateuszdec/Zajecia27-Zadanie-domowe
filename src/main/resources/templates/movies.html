@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmy</title>
+</head>
+<body>
+
+<a href="/addmovie">Dodaj film</a>
+
+<form method="get" action="/" th:object="${filters}">
+    <select name="targetAudience" th:field="*{category}">
+        <option value="">Wszystkie</option>
+        <option th:each="o: ${T(org.javastart.movie.Category).values()}"
+                th:value="${o.name()}"
+                th:text="${o.name()}"></option>
+    </select>
+    <input type="text" th:field="*{title}" placeholder="Tytuł"/>
+    <input type="submit" value="Filtruj" />
+</form>
+
+
+
+<!--<div th:if="not ${movies.isEmpty()}">-->
+<!--    <ul>-->
+<!--        <li th:each="movie:${movies}" th:object="${movies}" th:text="|${movie.title} , ${movie.premiereDate} (${movie.getCategory()()})|">Film </li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<div th:if="${movies.isEmpty()}">-->
+<!--    <h1>Nie ma filmów!!(</h1>-->
+<!--</div>-->
+
+
+
+<!--<ul>-->
+<!--    <li th:each="movie: ${movies}">-->
+<!--        <a th:href="'/film/' + ${movie.id}" th:text="${movie.title}"></a>-->
+<!--        &nbsp;-->
+<!--        <a th:href="'/film/edytuj/' + ${movie.id}">(Edytuj)</a>-->
+<!--        &nbsp;-->
+<!--        <a th:href="'/usun/' + ${movie.id}">(Usuń)</a>-->
+<!--    </li>-->
+<!--</ul>-->
+
+</body>
+</html>
